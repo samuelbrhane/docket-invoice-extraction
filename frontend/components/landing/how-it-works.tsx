@@ -1,3 +1,5 @@
+import { GrowBar, Reveal } from "@/components/motion";
+
 const STEPS = [
   {
     title: "Drop in an invoice",
@@ -24,13 +26,15 @@ export function HowItWorks() {
         <h2 className="max-w-2xl font-display text-4xl leading-tight">From the inbox to the stock count in four steps</h2>
         <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {STEPS.map((step, i) => (
-            <li key={step.title} className="relative">
-              <span className="figures text-sm font-bold text-ink-soft">Step {i + 1}</span>
-              <div className="mt-3 h-0.5 bg-rule">
-                <div className="h-full bg-ink" style={{ width: `${((i + 1) / STEPS.length) * 100}%` }} />
-              </div>
-              <h3 className="mt-5 font-display text-xl">{step.title}</h3>
-              <p className="mt-2 text-ink-soft">{step.body}</p>
+            <li key={step.title}>
+              <Reveal delay={i * 150}>
+                <span className="figures text-sm font-bold text-ink-soft">Step {i + 1}</span>
+                <div className="mt-3 h-0.5 bg-rule">
+                  <GrowBar share={((i + 1) / STEPS.length) * 100} delay={300 + i * 150} className="bg-ink" />
+                </div>
+                <h3 className="mt-5 font-display text-xl">{step.title}</h3>
+                <p className="mt-2 text-ink-soft">{step.body}</p>
+              </Reveal>
             </li>
           ))}
         </ol>
