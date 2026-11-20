@@ -3,7 +3,7 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.db import get_db
-from app.routers import documents_router
+from app.routers import documents_router, extraction_router, invoices_router
 
 app = FastAPI(
     title="Docket API",
@@ -16,6 +16,8 @@ app = FastAPI(
 )
 
 app.include_router(documents_router)
+app.include_router(extraction_router)
+app.include_router(invoices_router)
 
 
 @app.get("/api/health", tags=["system"], summary="Check the API and database")
