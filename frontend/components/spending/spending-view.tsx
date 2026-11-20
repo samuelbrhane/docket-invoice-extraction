@@ -46,8 +46,8 @@ export function SpendingView() {
       <p className="mt-2 text-ink-soft">From approved invoices, before VAT.</p>
       <p className="figures mt-5 text-5xl font-bold">{money(spending.total, spending.currency)}</p>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-        <Panel title="By month" note="Hover a bar to see what it was spent on" className="self-start">
+      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+        <Panel title="By month" note="Hover or tap a bar to see what it was spent on" className="self-start">
           <MonthBars months={spending.months} />
         </Panel>
         <div className="space-y-6">
