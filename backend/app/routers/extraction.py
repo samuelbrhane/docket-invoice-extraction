@@ -38,5 +38,5 @@ def extract_document(document_id: uuid.UUID, visitor: Visitor = Depends(get_visi
     return StreamingResponse(
         stream_extraction(document.id, visitor.id),
         media_type="text/event-stream",
-        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
+        headers={"Cache-Control": "no-cache, no-transform", "X-Accel-Buffering": "no"},
     )
