@@ -7,6 +7,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.config import SAMPLE_DATA_DIR
+from app.extraction.schema import ExtractedInvoice
 from app.models import DocumentFile
 from app.services import storage
 from app.services.uploads import detect_type
@@ -57,3 +58,30 @@ def sample_file(db: Session, key: str) -> DocumentFile:
     sample = get_sample(key)
     content = (SAMPLE_DATA_DIR / "invoices" / sample["filename"]).read_bytes()
     return storage.save(db, content, detect_type(content), sample_key=key)
+
+
+def answer_to_extracted(answer: dict) -> ExtractedInvoice:
+    """Build the model's output shape from an answer file, for history seeding and tests."""
+    return ExtractedInvoice.model_validate({
+        "is_invoice": True,
+        "supplier": answer["supplier"],
+        "invoice": answer["invoice"],
+        "lines": [
+            {
+                "description": line["description"],
+                "quantity": float(line["quantity"]),
+                "unit": line["unit"],
+                "unit_price": float(line["unit_price"]),
+                "line_total": float(line["line_total"]),
+                "match": {
+                    "kind": line["match"]["kind"],
+                    "sku": line["match"].get("sku"),
+                    "category": line["match"].get("category"),
+                },
+            }
+            for line in answer["lines"]
+        ],
+        "totals": {key: float(value) for key, value in answer["totals"].items()},
+        "payment": answer["payment"],
+        "uncertain_fields": [],
+    })
