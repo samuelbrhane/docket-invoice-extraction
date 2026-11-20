@@ -1,9 +1,11 @@
+import { MarkerOnView, Reveal } from "@/components/motion";
+
 const CHECKS = [
   {
     title: "Totals that don't add up",
     label: "Subtotal",
     value: "€263.00",
-    tone: "marker-red",
+    tone: "marker-red" as const,
     reason: "Line totals add up to €243.00, but the subtotal says €263.00",
     red: true,
   },
@@ -11,7 +13,7 @@ const CHECKS = [
     title: "A digit lost on a blurry photo",
     label: "IBAN",
     value: "IT34K05387428400000331892",
-    tone: "marker-red",
+    tone: "marker-red" as const,
     reason: "Italian IBANs have 27 characters, this one has 26",
     red: true,
   },
@@ -19,7 +21,7 @@ const CHECKS = [
     title: "The same bill sent twice",
     label: "Invoice number",
     value: "SL-55821",
-    tone: "marker-red",
+    tone: "marker-red" as const,
     reason: "Same supplier and number as an invoice already processed",
     red: true,
   },
@@ -27,7 +29,7 @@ const CHECKS = [
     title: "A supplier raising prices",
     label: "Unit price",
     value: "8.05 / kg",
-    tone: "marker",
+    tone: "marker" as const,
     reason: "Price up 18% since the last invoice (6.80 to 8.05)",
     red: false,
   },
@@ -47,16 +49,20 @@ export function Checks() {
             <p className="mt-4 text-ink-soft">These four are real catches from the sample invoices you can try.</p>
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
-            {CHECKS.map((check) => (
-              <li key={check.title} className="rounded-xl border border-rule bg-sheet p-5">
-                <h3 className="font-display text-lg">{check.title}</h3>
-                <div className="mt-4 rounded-lg border border-rule/80 bg-ledger/50 p-3">
-                  <p className="text-[12px] text-ink-soft">{check.label}</p>
-                  <p className="figures mt-0.5 break-all text-[15px]">
-                    <span className={check.tone}>{check.value}</span>
-                  </p>
-                </div>
-                <p className={`mt-3 text-sm leading-snug ${check.red ? "text-stamp" : "text-ink-soft"}`}>{check.reason}</p>
+            {CHECKS.map((check, i) => (
+              <li key={check.title}>
+                <Reveal delay={i * 120} className="h-full rounded-xl border border-rule bg-sheet p-5">
+                  <h3 className="font-display text-lg">{check.title}</h3>
+                  <div className="mt-4 rounded-lg border border-rule/80 bg-ledger/50 p-3">
+                    <p className="text-[12px] text-ink-soft">{check.label}</p>
+                    <p className="figures mt-0.5 break-all text-[15px]">
+                      <MarkerOnView tone={check.tone} delay={400 + i * 120}>
+                        {check.value}
+                      </MarkerOnView>
+                    </p>
+                  </div>
+                  <p className={`mt-3 text-sm leading-snug ${check.red ? "text-stamp" : "text-ink-soft"}`}>{check.reason}</p>
+                </Reveal>
               </li>
             ))}
           </ul>
