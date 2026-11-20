@@ -40,8 +40,10 @@ def _partial(text: str) -> dict | None:
         return None
 
 
-def extract(content: bytes, content_type: str, filename: str, inventory: list[dict]) -> Iterator[dict]:
-    """Yield stage, partial and result events for one document."""
+def extract(
+    content: bytes, content_type: str, filename: str, inventory: list[dict], model: str | None = None
+) -> Iterator[dict]:
+    """Yield stage, partial and result events for one document. The eval passes model to compare models."""
     started = time.monotonic()
     yield {"type": "stage", "stage": "reading"}
 
@@ -51,7 +53,7 @@ def extract(content: bytes, content_type: str, filename: str, inventory: list[di
     extracting = False
 
     with client.responses.stream(
-        model=EXTRACTION_MODEL,
+        model=model or EXTRACTION_MODEL,
         instructions=build_instructions(inventory),
         input=[
             {
