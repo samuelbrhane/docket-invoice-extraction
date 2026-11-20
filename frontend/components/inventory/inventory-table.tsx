@@ -6,6 +6,7 @@ import { getInventory, type InventoryItem } from "@/lib/api";
 import { useOnChanged } from "@/lib/events";
 import { money, quantity, shortDate, unitPrice } from "@/lib/format";
 
+import { InventoryCard } from "./inventory-card";
 import { Movements } from "./movements";
 
 function Chevron({ open }: { open: boolean }) {
@@ -42,9 +43,16 @@ export function InventoryTable() {
         )}
       </p>
 
-      <div className="mt-8 overflow-hidden rounded-xl border border-rule bg-sheet">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[640px]">
+      <div className="mt-8 space-y-2 md:hidden">
+        {(items ?? []).map((item) => (
+          <InventoryCard key={item.sku} item={item} />
+        ))}
+        {items === null && Array.from({ length: 4 }, (_, i) => <div key={i} className="h-28 animate-shimmer rounded-lg bg-rule/50" />)}
+      </div>
+
+      <div className="mt-8 hidden overflow-hidden rounded-xl border border-rule bg-sheet md:block">
+        <div>
+          <table className="w-full">
             <thead>
               <tr className="text-left text-[13px] text-ink-soft">
                 <th className="py-3 pl-5 pr-3 font-normal">Item</th>
