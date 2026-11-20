@@ -2,16 +2,16 @@
   "summary": {
     "model": "gpt-5.4-mini",
     "invoices": 12,
-    "field_accuracy_pct": 99.2,
-    "line_accuracy_pct": 93.9,
+    "field_accuracy_pct": 100.0,
+    "line_accuracy_pct": 100.0,
     "planted_caught": "3/3",
-    "ai_mistakes": 9,
-    "ai_mistakes_flagged": 5,
+    "ai_mistakes": 0,
+    "ai_mistakes_flagged": 0,
     "false_alarms": 0,
-    "cost_per_invoice_usd": "0.0031",
-    "total_cost_usd": "0.0372",
-    "seconds_per_invoice": 4.5,
-    "tokens_per_invoice": 2267
+    "cost_per_invoice_usd": "0.0033",
+    "total_cost_usd": "0.0396",
+    "seconds_per_invoice": 4.3,
+    "tokens_per_invoice": 2329
   },
   "invoices": [
     {
@@ -29,8 +29,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.003026",
-      "seconds": 6.2
+      "cost_usd": "0.002845",
+      "seconds": 4.0
     },
     {
       "invoice": "02-imballi-calabri-fattura",
@@ -47,8 +47,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.003515",
-      "seconds": 7.0
+      "cost_usd": "0.003163",
+      "seconds": 7.4
     },
     {
       "invoice": "03-speedline-logistics",
@@ -65,8 +65,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.002890",
-      "seconds": 6.6
+      "cost_usd": "0.002943",
+      "seconds": 4.2
     },
     {
       "invoice": "04-bruno-espresso-service",
@@ -83,8 +83,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.003010",
-      "seconds": 6.0
+      "cost_usd": "0.003378",
+      "seconds": 5.0
     },
     {
       "invoice": "05-energia-sud",
@@ -93,24 +93,16 @@
         11
       ],
       "lines": [
-        8,
+        12,
         12
       ],
       "caught": [],
       "missed": [],
       "false_alarms": [],
-      "mistakes": {
-        "lines[1].quantity": "got None, expected '1'",
-        "lines[1].unit_price": "got None, expected '62.40'",
-        "lines[2].quantity": "got None, expected '1'",
-        "lines[2].unit_price": "got None, expected '48.15'"
-      },
-      "mistakes_flagged": [
-        "lines[1].quantity",
-        "lines[2].quantity"
-      ],
-      "cost_usd": "0.003080",
-      "seconds": 3.6
+      "mistakes": {},
+      "mistakes_flagged": [],
+      "cost_usd": "0.003640",
+      "seconds": 4.4
     },
     {
       "invoice": "06-pulito-pro",
@@ -127,8 +119,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.002866",
-      "seconds": 3.8
+      "cost_usd": "0.002878",
+      "seconds": 3.5
     },
     {
       "invoice": "07-altura-green-coffee",
@@ -147,13 +139,13 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.002828",
-      "seconds": 3.4
+      "cost_usd": "0.002939",
+      "seconds": 3.2
     },
     {
       "invoice": "08-imballi-calabri-scan",
       "fields": [
-        10,
+        11,
         11
       ],
       "lines": [
@@ -163,14 +155,10 @@
       "caught": [],
       "missed": [],
       "false_alarms": [],
-      "mistakes": {
-        "payment.iban": "got 'IT34K0538742840000033188920', expected 'IT34K0538742840000003318920'"
-      },
-      "mistakes_flagged": [
-        "payment.iban"
-      ],
-      "cost_usd": "0.005188",
-      "seconds": 4.1
+      "mistakes": {},
+      "mistakes_flagged": [],
+      "cost_usd": "0.005330",
+      "seconds": 4.2
     },
     {
       "invoice": "09-bruno-espresso-service",
@@ -189,8 +177,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.002699",
-      "seconds": 3.4
+      "cost_usd": "0.003427",
+      "seconds": 4.8
     },
     {
       "invoice": "10-speedline-logistics-resent",
@@ -209,8 +197,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.002798",
-      "seconds": 3.2
+      "cost_usd": "0.003206",
+      "seconds": 4.0
     },
     {
       "invoice": "11-energia-sud",
@@ -219,24 +207,16 @@
         11
       ],
       "lines": [
-        8,
+        12,
         12
       ],
       "caught": [],
       "missed": [],
       "false_alarms": [],
-      "mistakes": {
-        "lines[1].quantity": "got None, expected '1'",
-        "lines[1].unit_price": "got None, expected '62.40'",
-        "lines[2].quantity": "got None, expected '1'",
-        "lines[2].unit_price": "got None, expected '52.80'"
-      },
-      "mistakes_flagged": [
-        "lines[1].quantity",
-        "lines[2].quantity"
-      ],
-      "cost_usd": "0.002733",
-      "seconds": 3.1
+      "mistakes": {},
+      "mistakes_flagged": [],
+      "cost_usd": "0.003429",
+      "seconds": 4.2
     },
     {
       "invoice": "12-pulito-pro",
@@ -253,8 +233,8 @@
       "false_alarms": [],
       "mistakes": {},
       "mistakes_flagged": [],
-      "cost_usd": "0.002602",
-      "seconds": 3.3
+      "cost_usd": "0.002425",
+      "seconds": 3.2
     }
   ]
 }
