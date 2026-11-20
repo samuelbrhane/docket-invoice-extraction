@@ -14,7 +14,7 @@ type Props = { value: Filter; counts: Record<Filter, number>; onChange: (filter:
 
 export function StatusFilter({ value, counts, onChange }: Props) {
   return (
-    <div role="tablist" aria-label="Filter by status" className="flex gap-1 overflow-x-auto rounded-lg border border-rule bg-sheet p-1">
+    <div role="tablist" aria-label="Filter by status" className="flex flex-wrap gap-1 rounded-lg border border-rule bg-sheet p-1">
       {FILTERS.map((filter) => {
         const active = filter.key === value;
         return (
