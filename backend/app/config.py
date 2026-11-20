@@ -1,8 +1,13 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# Paths
+BASE_DIR = Path(__file__).resolve().parents[1]
+SAMPLE_DATA_DIR = BASE_DIR / "sample_data"
 
 # Database
 DATABASE_URL = os.environ["DATABASE_URL"]
@@ -15,6 +20,11 @@ EXTRACTION_REASONING = os.getenv("EXTRACTION_REASONING", "low")
 MAX_UPLOAD_MB = 4
 SUPPORTED_TYPES = ("application/pdf", "image/jpeg", "image/png")
 UPLOAD_RETENTION_DAYS = 7
+MAX_PDF_PAGES = 5
+
+# Visitors
+VISITOR_COOKIE = "docket_visitor"
+VISITOR_COOKIE_DAYS = 180
 
 # Public demo
 DEMO_MODE = os.getenv("DEMO_MODE", "false").lower() == "true"
