@@ -1,0 +1,60 @@
+{
+  "file": "11-energia-sud.pdf",
+  "supplier": {
+    "name": "Energia Sud S.p.A.",
+    "vat": "IT05102840631",
+    "address": "Centro Direzionale Isola G1, 80143 Napoli (NA), Italy"
+  },
+  "invoice": {
+    "number": "ES-2026-7904417",
+    "issue_date": "2026-11-05",
+    "due_date": "2026-11-26",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Electricity, October (2,715 kWh)",
+      "quantity": "2715",
+      "unit": "kWh",
+      "unit_price": "0.1725",
+      "line_total": "468.34",
+      "match": {
+        "kind": "expense",
+        "category": "utilities"
+      }
+    },
+    {
+      "description": "Network and meter charges",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "62.40",
+      "line_total": "62.40",
+      "match": {
+        "kind": "expense",
+        "category": "utilities"
+      }
+    },
+    {
+      "description": "System charges",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "52.80",
+      "line_total": "52.80",
+      "match": {
+        "kind": "expense",
+        "category": "utilities"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "583.54",
+    "vat_rate": "22",
+    "vat_amount": "128.38",
+    "total": "711.92"
+  },
+  "payment": {
+    "terms": "Direct debit on due date",
+    "iban": "IT54M0311103400000000058391"
+  },
+  "expected_issues": []
+}

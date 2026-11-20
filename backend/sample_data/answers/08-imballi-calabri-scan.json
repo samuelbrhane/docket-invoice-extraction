@@ -1,0 +1,52 @@
+{
+  "file": "08-imballi-calabri-scan.jpg",
+  "supplier": {
+    "name": "Imballi Calabri S.n.c.",
+    "vat": "IT01968230798",
+    "address": "Zona Industriale Lotto 22, 88046 Lamezia Terme (CZ), Italia"
+  },
+  "invoice": {
+    "number": "FT 2026/1302",
+    "issue_date": "2026-10-20",
+    "due_date": "2026-11-30",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Scatole spedizione 30x20x15",
+      "quantity": "300",
+      "unit": "pz",
+      "unit_price": "0.95",
+      "line_total": "285.00",
+      "match": {
+        "kind": "stock",
+        "sku": "BOX"
+      }
+    },
+    {
+      "description": "Sacchetti con valvola 250 g, kraft",
+      "quantity": "1000",
+      "unit": "pz",
+      "unit_price": "0.19",
+      "line_total": "190.00",
+      "match": {
+        "kind": "stock",
+        "sku": "BAG-250"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "475.00",
+    "vat_rate": "22",
+    "vat_amount": "104.50",
+    "total": "579.50"
+  },
+  "payment": {
+    "terms": "Bonifico bancario, 30 gg data fattura fine mese",
+    "iban": "IT34K0538742840000003318920"
+  },
+  "expected_issues": [
+    "italian",
+    "scan"
+  ]
+}

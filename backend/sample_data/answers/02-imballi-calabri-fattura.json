@@ -1,0 +1,62 @@
+{
+  "file": "02-imballi-calabri-fattura.pdf",
+  "supplier": {
+    "name": "Imballi Calabri S.n.c.",
+    "vat": "IT01968230798",
+    "address": "Zona Industriale Lotto 22, 88046 Lamezia Terme (CZ), Italia"
+  },
+  "invoice": {
+    "number": "FT 2026/1187",
+    "issue_date": "2026-09-15",
+    "due_date": "2026-10-31",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Sacchetti con valvola 250 g, kraft",
+      "quantity": "2000",
+      "unit": "pz",
+      "unit_price": "0.19",
+      "line_total": "380.00",
+      "match": {
+        "kind": "stock",
+        "sku": "BAG-250"
+      }
+    },
+    {
+      "description": "Sacchetti con valvola 1 kg, kraft",
+      "quantity": "500",
+      "unit": "pz",
+      "unit_price": "0.42",
+      "line_total": "210.00",
+      "match": {
+        "kind": "stock",
+        "sku": "BAG-1K"
+      }
+    },
+    {
+      "description": "Etichette stampate 80 mm, rotolo",
+      "quantity": "4000",
+      "unit": "pz",
+      "unit_price": "0.035",
+      "line_total": "140.00",
+      "match": {
+        "kind": "stock",
+        "sku": "LBL"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "730.00",
+    "vat_rate": "22",
+    "vat_amount": "160.60",
+    "total": "890.60"
+  },
+  "payment": {
+    "terms": "Bonifico bancario, 30 gg data fattura fine mese",
+    "iban": "IT34K0538742840000003318920"
+  },
+  "expected_issues": [
+    "italian"
+  ]
+}

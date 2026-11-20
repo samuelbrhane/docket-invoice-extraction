@@ -1,0 +1,49 @@
+{
+  "file": "12-pulito-pro.pdf",
+  "supplier": {
+    "name": "Pulito Pro Servizi",
+    "vat": "IT03971180786",
+    "address": "Via Kennedy 52, 87036 Rende (CS), Italy"
+  },
+  "invoice": {
+    "number": "PP-26-348",
+    "issue_date": "2026-11-10",
+    "due_date": "2026-12-10",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Production area deep clean, monthly",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "260.00",
+      "line_total": "260.00",
+      "match": {
+        "kind": "expense",
+        "category": "cleaning"
+      }
+    },
+    {
+      "description": "Window and storefront cleaning",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "75.00",
+      "line_total": "75.00",
+      "match": {
+        "kind": "expense",
+        "category": "cleaning"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "335.00",
+    "vat_rate": "22",
+    "vat_amount": "73.70",
+    "total": "408.70"
+  },
+  "payment": {
+    "terms": "Bank transfer within 30 days",
+    "iban": "IT48T0888780880000000214406"
+  },
+  "expected_issues": []
+}

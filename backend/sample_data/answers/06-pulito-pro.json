@@ -1,0 +1,49 @@
+{
+  "file": "06-pulito-pro.pdf",
+  "supplier": {
+    "name": "Pulito Pro Servizi",
+    "vat": "IT03971180786",
+    "address": "Via Kennedy 52, 87036 Rende (CS), Italy"
+  },
+  "invoice": {
+    "number": "PP-26-311",
+    "issue_date": "2026-10-10",
+    "due_date": "2026-11-09",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Production area deep clean, monthly",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "260.00",
+      "line_total": "260.00",
+      "match": {
+        "kind": "expense",
+        "category": "cleaning"
+      }
+    },
+    {
+      "description": "Grinder cleaning tablets (pack of 40)",
+      "quantity": "6",
+      "unit": "packs",
+      "unit_price": "14.50",
+      "line_total": "87.00",
+      "match": {
+        "kind": "stock",
+        "sku": "CLN"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "347.00",
+    "vat_rate": "22",
+    "vat_amount": "76.34",
+    "total": "423.34"
+  },
+  "payment": {
+    "terms": "Bank transfer within 30 days",
+    "iban": "IT48T0888780880000000214406"
+  },
+  "expected_issues": []
+}

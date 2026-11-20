@@ -1,0 +1,62 @@
+{
+  "file": "07-altura-green-coffee.pdf",
+  "supplier": {
+    "name": "Altura Green Coffee S.r.l.",
+    "vat": "IT02294710325",
+    "address": "Riva del Mandracchio 4, 34124 Trieste (TS), Italy"
+  },
+  "invoice": {
+    "number": "AGC-2026-0496",
+    "issue_date": "2026-10-14",
+    "due_date": "2026-11-13",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Ethiopia Yirgacheffe Grade 1, washed",
+      "quantity": "120",
+      "unit": "kg",
+      "unit_price": "8.05",
+      "line_total": "966.00",
+      "match": {
+        "kind": "stock",
+        "sku": "GB-ETH"
+      }
+    },
+    {
+      "description": "Brazil Cerrado Natural",
+      "quantity": "120",
+      "unit": "kg",
+      "unit_price": "4.60",
+      "line_total": "552.00",
+      "match": {
+        "kind": "stock",
+        "sku": "GB-BRA"
+      }
+    },
+    {
+      "description": "Freight Trieste to Rende",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "85.00",
+      "line_total": "85.00",
+      "match": {
+        "kind": "expense",
+        "category": "shipping"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "1603.00",
+    "vat_rate": "10",
+    "vat_amount": "160.30",
+    "total": "1763.30"
+  },
+  "payment": {
+    "terms": "Bank transfer, 30 days from invoice date",
+    "iban": "IT67X0306902233100000041872"
+  },
+  "expected_issues": [
+    "price_jump"
+  ]
+}

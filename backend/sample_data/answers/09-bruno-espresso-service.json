@@ -1,0 +1,62 @@
+{
+  "file": "09-bruno-espresso-service.pdf",
+  "supplier": {
+    "name": "Bruno Espresso Service",
+    "vat": "IT03550120784",
+    "address": "Corso Mazzini 140, 87100 Cosenza (CS), Italy"
+  },
+  "invoice": {
+    "number": "BES-0977",
+    "issue_date": "2026-10-24",
+    "due_date": "2026-11-07",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Grinder burr set, 98 mm",
+      "quantity": "1",
+      "unit": "set",
+      "unit_price": "118.00",
+      "line_total": "118.00",
+      "match": {
+        "kind": "expense",
+        "category": "repairs"
+      }
+    },
+    {
+      "description": "Technician labour",
+      "quantity": "2",
+      "unit": "hours",
+      "unit_price": "45.00",
+      "line_total": "90.00",
+      "match": {
+        "kind": "expense",
+        "category": "repairs"
+      }
+    },
+    {
+      "description": "Call-out fee",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "35.00",
+      "line_total": "35.00",
+      "match": {
+        "kind": "expense",
+        "category": "repairs"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "263.00",
+    "vat_rate": "22",
+    "vat_amount": "57.86",
+    "total": "320.86"
+  },
+  "payment": {
+    "terms": "Due on receipt, 14 days",
+    "iban": "IT82Q0103016200000000772415"
+  },
+  "expected_issues": [
+    "subtotal_mismatch"
+  ]
+}

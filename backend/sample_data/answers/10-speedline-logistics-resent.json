@@ -1,0 +1,62 @@
+{
+  "file": "10-speedline-logistics-resent.pdf",
+  "supplier": {
+    "name": "SpeedLine Logistics S.p.A.",
+    "vat": "IT07731520963",
+    "address": "Via dell'Industria 61, 20037 Paderno Dugnano (MI), Italy"
+  },
+  "invoice": {
+    "number": "SL-55821",
+    "issue_date": "2026-09-30",
+    "due_date": "2026-10-30",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Parcel shipments, domestic, September (142 parcels)",
+      "quantity": "142",
+      "unit": "parcels",
+      "unit_price": "6.40",
+      "line_total": "908.80",
+      "match": {
+        "kind": "expense",
+        "category": "shipping"
+      }
+    },
+    {
+      "description": "Fuel surcharge",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "54.60",
+      "line_total": "54.60",
+      "match": {
+        "kind": "expense",
+        "category": "shipping"
+      }
+    },
+    {
+      "description": "Pallet pickup, Rende",
+      "quantity": "2",
+      "unit": "pickups",
+      "unit_price": "38.00",
+      "line_total": "76.00",
+      "match": {
+        "kind": "expense",
+        "category": "shipping"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "1039.40",
+    "vat_rate": "22",
+    "vat_amount": "228.67",
+    "total": "1268.07"
+  },
+  "payment": {
+    "terms": "Payment due within 30 days",
+    "iban": "IT33B0200833250000105562210"
+  },
+  "expected_issues": [
+    "duplicate"
+  ]
+}

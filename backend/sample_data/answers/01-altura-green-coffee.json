@@ -1,0 +1,60 @@
+{
+  "file": "01-altura-green-coffee.pdf",
+  "supplier": {
+    "name": "Altura Green Coffee S.r.l.",
+    "vat": "IT02294710325",
+    "address": "Riva del Mandracchio 4, 34124 Trieste (TS), Italy"
+  },
+  "invoice": {
+    "number": "AGC-2026-0418",
+    "issue_date": "2026-09-08",
+    "due_date": "2026-10-08",
+    "currency": "EUR"
+  },
+  "lines": [
+    {
+      "description": "Ethiopia Yirgacheffe Grade 1, washed",
+      "quantity": "120",
+      "unit": "kg",
+      "unit_price": "6.80",
+      "line_total": "816.00",
+      "match": {
+        "kind": "stock",
+        "sku": "GB-ETH"
+      }
+    },
+    {
+      "description": "Colombia Huila Supremo",
+      "quantity": "70",
+      "unit": "kg",
+      "unit_price": "5.90",
+      "line_total": "413.00",
+      "match": {
+        "kind": "stock",
+        "sku": "GB-COL"
+      }
+    },
+    {
+      "description": "Freight Trieste to Rende",
+      "quantity": "1",
+      "unit": null,
+      "unit_price": "85.00",
+      "line_total": "85.00",
+      "match": {
+        "kind": "expense",
+        "category": "shipping"
+      }
+    }
+  ],
+  "totals": {
+    "subtotal": "1314.00",
+    "vat_rate": "10",
+    "vat_amount": "131.40",
+    "total": "1445.40"
+  },
+  "payment": {
+    "terms": "Bank transfer, 30 days from invoice date",
+    "iban": "IT67X0306902233100000041872"
+  },
+  "expected_issues": []
+}
