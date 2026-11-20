@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 
 import { Logo } from "@/components/brand";
 
@@ -16,16 +17,19 @@ export function AppHeader() {
         </Link>
         <nav className="hidden gap-7 md:flex">
           {APP_LINKS.map((link) => (
-            <NavLink key={link.href} href={link.href}>
-              {link.label}
-            </NavLink>
+            // The active tab depends on the URL, so each link waits in Suspense on dynamic pages
+            <Suspense key={link.href} fallback={<span className="py-5 text-[15px] text-ink-soft">{link.label}</span>}>
+              <NavLink href={link.href}>{link.label}</NavLink>
+            </Suspense>
           ))}
         </nav>
         <div className="ml-auto hidden lg:block">
           <StatsStrip />
         </div>
         <div className="ml-auto md:hidden">
-          <MobileMenu />
+          <Suspense fallback={<div className="size-10 rounded-lg border border-rule bg-sheet" />}>
+            <MobileMenu />
+          </Suspense>
         </div>
       </div>
     </header>
