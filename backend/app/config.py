@@ -9,6 +9,7 @@ DATABASE_URL = os.environ["DATABASE_URL"]
 
 # Models
 EXTRACTION_MODEL = os.getenv("EXTRACTION_MODEL", "gpt-5.4-mini")
+EXTRACTION_REASONING = os.getenv("EXTRACTION_REASONING", "low")
 
 # Uploads
 MAX_UPLOAD_MB = 4
