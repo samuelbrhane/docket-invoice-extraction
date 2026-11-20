@@ -4,15 +4,15 @@ AI invoice processing for a small coffee roaster. Upload a supplier invoice and 
 
 **Live app:** https://docket-extraction.vercel.app
 
-![Docket landing page](screenshots/hero.png)
+![Docket landing page](Screenshots/hero.png)
 
 ## Demo
 
-![Docket demo](screenshots/docket-demo.gif)
+![Docket demo](Screenshots/docket-demo.gif)
 
 | Live extraction | Review with flags |
 |---|---|
-| ![Extraction](screenshots/extraction.png) | ![Review](screenshots/review.png) |
+| ![Extraction](Screenshots/extraction.png) | ![Review](Screenshots/review.png) |
 
 ## What it does
 
