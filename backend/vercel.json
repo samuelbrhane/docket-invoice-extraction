@@ -6,7 +6,11 @@
       "excludeFiles": "{eval/**,scripts/**,alembic/**,.venv/**,**/__pycache__/**}"
     }
   },
-  "crons": [
-    { "path": "/api/cron/cleanup", "schedule": "0 3 * * *" }
-  ]
+  "schedules": {
+    "cleanup": {
+      "schedule": "0 3 * * *",
+      "path": "/api/cron/cleanup",
+      "requestMethod": "GET"
+    }
+  }
 }
