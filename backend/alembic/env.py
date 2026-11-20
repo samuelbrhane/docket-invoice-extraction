@@ -5,6 +5,7 @@ from sqlalchemy import engine_from_config, pool
 
 from app.config import DATABASE_URL
 from app.db import Base, sqlalchemy_url
+import app.models  # noqa: F401  (registers every table on Base.metadata)
 
 config = context.config
 config.set_main_option("sqlalchemy.url", sqlalchemy_url(DATABASE_URL).replace("%", "%%"))
