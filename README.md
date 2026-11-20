@@ -2,7 +2,7 @@
 
 AI invoice processing for a small coffee roaster. Upload a supplier invoice and watch the fields fill in as the AI reads it. Code checks the math, the IBAN, duplicates and price changes, and you fix or confirm anything flagged. Only approved invoices update inventory and spending.
 
-**Live app:** LIVE-URL
+**Live app:** https://docket-extraction.vercel.app
 
 ![Docket landing page](screenshots/hero.png)
 
@@ -95,9 +95,12 @@ python -m eval.run_eval --model gpt-5.4
 
 Full results are in `backend/eval/results`.
 
-## Limits
+## Limits and hosting
 
-With `DEMO_MODE=true`, each visitor can run 10 extractions a day and the whole app 150. Both numbers come from environment variables. Visitors are told apart by an anonymous cookie, with no sign-in.
+- With `DEMO_MODE=true`, each visitor can run 10 extractions a day and the whole app 150. Both numbers come from environment variables.
+- Visitors are told apart by an anonymous cookie, with no sign-in.
+- A daily scheduled job deletes visitors idle for 7 days, along with their uploads. The endpoint is protected by a secret.
+- The frontend and the API are two Vercel projects. The API runs in Frankfurt, next to the Neon database.
 
 ## Stack
 
@@ -105,7 +108,7 @@ With `DEMO_MODE=true`, each visitor can run 10 extractions a day and the whole a
 - **Backend:** FastAPI, Pydantic, SQLAlchemy, Alembic
 - **AI:** OpenAI Responses API with structured outputs and streaming
 - **Data:** Postgres, with uploaded files stored behind a storage module
-- **Hosting:** Vercel for both apps, Neon for the database
+- **Hosting:** Vercel for both apps, Neon for the database, Vercel Schedules for the cleanup job
 
 ## Run locally
 
@@ -155,13 +158,14 @@ backend/
   app/
     extraction/     schema, prompt, streaming model call, pricing
     rules/          normalizing, math and format checks, duplicates, price alerts
-    services/       invoices, reports, storage, visitors, limits
-    routers/        documents, extraction, invoices, inventory, reports
+    services/       invoices, reports, storage, visitors, limits, cleanup
+    routers/        documents, extraction, invoices, inventory, reports, cron
     models/         SQLAlchemy tables
   alembic/          migrations
   eval/             eval runner and results
   scripts/          sample invoice generator and test scripts
   sample_data/      invoices, answer files, starting inventory
+  vercel.json       function settings and the daily schedule
 frontend/
   app/              landing page and the app under /app
   components/       landing, upload, extraction, review, invoices, inventory, spending
