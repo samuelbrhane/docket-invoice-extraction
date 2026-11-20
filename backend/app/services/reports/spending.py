@@ -26,23 +26,26 @@ def spending(db: Session, visitor_id: uuid.UUID) -> SpendingOut:
         select(Invoice)
         .options(selectinload(Invoice.lines))
         .where(Invoice.visitor_id == visitor_id, Invoice.status == InvoiceStatus.APPROVED)
+        .order_by(Invoice.created_at)
     ).all()
 
     months: dict[str, dict[str, Decimal]] = defaultdict(lambda: defaultdict(lambda: ZERO))
-    suppliers: dict[str, list] = defaultdict(lambda: [ZERO, 0])
+    suppliers: dict[str, list] = {}  # key: [name, total, invoice count]
     categories: dict[str, Decimal] = defaultdict(lambda: ZERO)
 
     for invoice in invoices:
         when = invoice.issue_date or invoice.approved_at.date()
         month = when.strftime("%Y-%m")
-        supplier = suppliers[invoice.supplier_name or "Unknown supplier"]
-        supplier[1] += 1
+        # The same supplier can be spelled differently on different invoices, so group by VAT number
+        key = invoice.supplier_vat or (invoice.supplier_name or "unknown").lower()
+        supplier = suppliers.setdefault(key, [invoice.supplier_name or "Unknown supplier", ZERO, 0])
+        supplier[2] += 1
         for line in invoice.lines:
             amount = line.line_total or ZERO
             category = _category(line)
             months[month][category] += amount
             categories[category] += amount
-            supplier[0] += amount
+            supplier[1] += amount
 
     return SpendingOut(
         currency="EUR",
@@ -53,7 +56,7 @@ def spending(db: Session, visitor_id: uuid.UUID) -> SpendingOut:
         ],
         suppliers=[
             SpendingSupplier(name=name, total=total, invoice_count=count)
-            for name, (total, count) in sorted(suppliers.items(), key=lambda item: item[1][0], reverse=True)
+            for name, total, count in sorted(suppliers.values(), key=lambda supplier: supplier[1], reverse=True)
         ],
         categories=[
             SpendingCategory(category=category, total=total)
