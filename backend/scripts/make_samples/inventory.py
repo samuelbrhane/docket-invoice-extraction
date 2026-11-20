@@ -1,0 +1,11 @@
+# The roaster's stock items. Each visitor gets a copy with these starting values.
+INVENTORY = [
+    {"sku": "GB-ETH", "name": "Ethiopia Yirgacheffe green beans", "unit": "kg", "stock_qty": "120", "last_unit_price": "6.80"},
+    {"sku": "GB-COL", "name": "Colombia Huila green beans", "unit": "kg", "stock_qty": "180", "last_unit_price": "5.90"},
+    {"sku": "GB-BRA", "name": "Brazil Cerrado green beans", "unit": "kg", "stock_qty": "240", "last_unit_price": "4.60"},
+    {"sku": "BAG-250", "name": "250 g valve bags", "unit": "pcs", "stock_qty": "1500", "last_unit_price": "0.19"},
+    {"sku": "BAG-1K", "name": "1 kg valve bags", "unit": "pcs", "stock_qty": "400", "last_unit_price": "0.42"},
+    {"sku": "LBL", "name": "Printed labels", "unit": "pcs", "stock_qty": "3000", "last_unit_price": "0.035"},
+    {"sku": "BOX", "name": "Shipping boxes", "unit": "pcs", "stock_qty": "250", "last_unit_price": "0.95"},
+    {"sku": "CLN", "name": "Grinder cleaning tablets", "unit": "packs", "stock_qty": "12", "last_unit_price": "14.50"},
+]
