@@ -1,4 +1,4 @@
-import { ensureOk } from "./client";
+import { ensureOk, ensureSession } from "./client";
 import type { InvoiceDetail } from "./types";
 
 export type Stage = "reading" | "extracting" | "checking" | "ready";
@@ -50,6 +50,7 @@ export async function extractDocument(
   handlers: ExtractionHandlers,
   signal?: AbortSignal,
 ): Promise<void> {
+  await ensureSession();
   const response = await ensureOk(
     await fetch(`/api/documents/${documentId}/extract`, { method: "POST", credentials: "same-origin", signal }),
   );

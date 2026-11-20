@@ -27,8 +27,26 @@ export async function ensureOk(response: Response): Promise<Response> {
   return response;
 }
 
+let session: Promise<void> | null = null;
+
+/**
+ * Make sure the visitor cookie exists before other calls run.
+ * Without this, two calls on a first visit could each create their own visitor.
+ */
+export function ensureSession(): Promise<void> {
+  session ??= fetch("/api/session", { credentials: "same-origin" })
+    .then(ensureOk)
+    .then(() => undefined)
+    .catch((error) => {
+      session = null;
+      throw error;
+    });
+  return session;
+}
+
 /** Call the API through the Next.js proxy. The visitor cookie goes along automatically. */
 export async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
+  await ensureSession();
   const response = await ensureOk(await fetch(`/api${path}`, { ...init, credentials: "same-origin" }));
   if (response.status === 204) return undefined as T;
   return (await response.json()) as T;
