@@ -1,4 +1,4 @@
-import { HealthCheck } from "@/components/setup";
+import { HealthCheck, StreamCheck } from "@/components/setup";
 
 const SWATCHES = ["ledger", "sheet", "rule", "ink", "ink-soft", "stamp", "approved", "marker", "marker-red"];
 
@@ -10,6 +10,10 @@ export default function SetupPage() {
 
       <section className="mt-10 rounded-lg border border-rule bg-sheet p-6">
         <HealthCheck />
+      </section>
+
+      <section className="mt-6 rounded-lg border border-rule bg-sheet p-6">
+        <StreamCheck />
       </section>
 
       <section className="ruled mt-10 rounded-lg border border-rule bg-sheet px-6 py-[0.4rem] text-lg leading-8">
