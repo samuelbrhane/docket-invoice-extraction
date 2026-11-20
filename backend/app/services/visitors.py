@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 from app.config import DEMO_MODE, SAMPLE_DATA_DIR, VISITOR_COOKIE, VISITOR_COOKIE_DAYS
 from app.db import get_db
 from app.models import InventoryItem, Visitor
+from app.services.history import seed_history
 
 
 def _starting_inventory() -> list[dict]:
@@ -29,6 +30,8 @@ def create_visitor(db: Session) -> Visitor:
             stock_qty=Decimal(item["stock_qty"]),
             last_unit_price=Decimal(item["last_unit_price"]),
         ))
+    db.flush()
+    seed_history(db, visitor)
     db.commit()
     return visitor
 
