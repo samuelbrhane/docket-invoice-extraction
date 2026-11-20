@@ -1,3 +1,4 @@
+from app.routers.cron import router as cron_router
 from app.routers.demo import router as demo_router
 from app.routers.documents import router as documents_router
 from app.routers.extraction import router as extraction_router
@@ -7,6 +8,7 @@ from app.routers.reports import router as reports_router
 from app.routers.session import router as session_router
 
 __all__ = [
+    "cron_router",
     "demo_router",
     "documents_router",
     "extraction_router",
