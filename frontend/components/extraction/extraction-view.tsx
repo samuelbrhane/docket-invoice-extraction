@@ -20,7 +20,7 @@ export function ExtractionView({ document, onAnother }: { document: DocumentInfo
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
       <div className="lg:sticky lg:top-24 lg:h-[calc(100vh-8rem)]">
         <div className="h-[70vh] lg:h-full">
-          <DocumentViewer document={document} />
+          <DocumentViewer documentId={document.id} filename={document.filename} contentType={document.content_type} />
         </div>
       </div>
 
