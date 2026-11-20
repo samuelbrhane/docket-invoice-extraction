@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:17
+    container_name: docket-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: docket
+    ports:
+      - "5436:5432"
+    volumes:
+      - docket-db-data:/var/lib/postgresql/data
+
+volumes:
+  docket-db-data:
