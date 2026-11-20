@@ -10,6 +10,7 @@ from app.routers import (
     inventory_router,
     invoices_router,
     reports_router,
+    session_router,
 )
 
 app = FastAPI(
@@ -22,6 +23,7 @@ app = FastAPI(
     redoc_url=None,
 )
 
+app.include_router(session_router)
 app.include_router(documents_router)
 app.include_router(extraction_router)
 app.include_router(invoices_router)
