@@ -14,6 +14,7 @@ Rules:
 - When amounts are shown with €, the currency is EUR.
 - Leave a field null when it is not on the document. Never guess a value.
 - Return one line item per row of the items table, in order, including freight and fee rows.
+- A flat charge with only an amount printed has quantity 1 and a unit price equal to that amount.
 - For each line, set match:
   - stock with the SKU when the line buys one of the inventory items below
   - expense with a category for services: shipping, repairs, utilities, cleaning or other. Spare parts and labour billed by a repair service are repairs
