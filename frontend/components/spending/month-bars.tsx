@@ -9,13 +9,30 @@ import { categoryLabel, monthLabel } from "./labels";
 
 const HEIGHT = 320;
 
-/** Net spending per month: one ink bar each, with the split by category on hover. */
+function Breakdown({ month }: { month: Spending["months"][number] }) {
+  return (
+    <ul className="mt-2 space-y-1">
+      {Object.entries(month.by_category)
+        .sort((a, b) => Number(b[1]) - Number(a[1]))
+        .map(([category, amount]) => (
+          <li key={category} className="flex justify-between gap-3">
+            <span className="whitespace-nowrap text-ink-soft">{categoryLabel(category)}</span>
+            <span className="figures">{money(amount)}</span>
+          </li>
+        ))}
+    </ul>
+  );
+}
+
+/** Net spending per month: one ink bar each, with the split by category on hover, or below the chart on phones. */
 export function MonthBars({ months }: { months: Spending["months"] }) {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [tapped, setTapped] = useState<string | null>(null);
   // Headroom above the tallest bar for its label and the tooltip
   const max = Math.max(...months.map((m) => Number(m.total)), 1) * 1.25;
 
   if (months.length === 0) return <p className="text-ink-soft">No approved invoices yet.</p>;
+  const selected = months.find((m) => m.month === tapped) ?? months[months.length - 1];
 
   return (
     <div className="relative">
@@ -28,6 +45,7 @@ export function MonthBars({ months }: { months: Spending["months"] }) {
               <div
                 key={month.month}
                 className="relative flex h-full w-full max-w-24 cursor-default items-end justify-center"
+                onClick={() => setTapped(month.month)}
                 onMouseEnter={() => setHovered(month.month)}
                 onMouseLeave={() => setHovered(null)}
                 onFocus={() => setHovered(month.month)}
@@ -39,26 +57,17 @@ export function MonthBars({ months }: { months: Spending["months"] }) {
                   {money(month.total)}
                 </span>
                 <div
-                  className={`w-full max-w-14 rounded-t-[4px] transition-colors ${active ? "bg-ink" : "bg-ink/75"}`}
+                  className={`w-full max-w-14 rounded-t-[4px] transition-colors ${active || tapped === month.month ? "bg-ink" : "bg-ink/75"}`}
                   style={{ height }}
                 />
                 {active && (
                   <div
                     role="tooltip"
-                    className="absolute left-1/2 z-10 w-64 -translate-x-1/2 animate-rise rounded-lg border border-rule bg-sheet p-3 text-sm shadow-[0_12px_30px_-16px_rgb(28_42_66/0.5)]"
+                    className="absolute left-1/2 z-10 hidden w-64 -translate-x-1/2 md:block animate-rise rounded-lg border border-rule bg-sheet p-3 text-sm shadow-[0_12px_30px_-16px_rgb(28_42_66/0.5)]"
                     style={{ bottom: Math.min(height + 32, HEIGHT - 150) }}
                   >
                     <p className="font-bold">{monthLabel(month.month)}</p>
-                    <ul className="mt-2 space-y-1">
-                      {Object.entries(month.by_category)
-                        .sort((a, b) => Number(b[1]) - Number(a[1]))
-                        .map(([category, amount]) => (
-                          <li key={category} className="flex justify-between gap-3">
-                            <span className="whitespace-nowrap text-ink-soft">{categoryLabel(category)}</span>
-                            <span className="figures">{money(amount)}</span>
-                          </li>
-                        ))}
-                    </ul>
+                    <Breakdown month={month} />
                   </div>
                 )}
               </div>
@@ -72,6 +81,11 @@ export function MonthBars({ months }: { months: Spending["months"] }) {
             {monthLabel(month.month)}
           </span>
         ))}
+      </div>
+      {/* Phones have no hover, so the tapped month (or the latest) is listed under the chart */}
+      <div className="mt-5 rounded-lg border border-rule bg-ledger/50 p-3 text-sm md:hidden">
+        <p className="font-bold">{monthLabel(selected.month)}</p>
+        <Breakdown month={selected} />
       </div>
     </div>
   );
