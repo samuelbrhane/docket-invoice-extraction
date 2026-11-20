@@ -1,0 +1,19 @@
+# Private notes
+PROGRESS.md
+
+# Environment
+.env
+.env.local
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node and Next.js
+node_modules/
+.next/
+
+# Vercel
+.vercel/
