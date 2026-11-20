@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.db import get_db
 from app.routers import (
+    cron_router,
     demo_router,
     documents_router,
     extraction_router,
@@ -30,6 +31,7 @@ app.include_router(invoices_router)
 app.include_router(inventory_router)
 app.include_router(reports_router)
 app.include_router(demo_router)
+app.include_router(cron_router)
 
 
 @app.get("/api/health", tags=["system"], summary="Check the API and database")

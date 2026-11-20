@@ -5,5 +5,8 @@
       "maxDuration": 60,
       "excludeFiles": "{eval/**,scripts/**,alembic/**,.venv/**,**/__pycache__/**}"
     }
-  }
+  },
+  "crons": [
+    { "path": "/api/cron/cleanup", "schedule": "0 3 * * *" }
+  ]
 }
