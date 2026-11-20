@@ -30,3 +30,6 @@ VISITOR_COOKIE_DAYS = 180
 DEMO_MODE = os.getenv("DEMO_MODE", "false").lower() == "true"
 DAILY_EXTRACTIONS_PER_VISITOR = int(os.getenv("DAILY_EXTRACTIONS_PER_VISITOR", "10"))
 DAILY_EXTRACTIONS_TOTAL = int(os.getenv("DAILY_EXTRACTIONS_TOTAL", "150"))
+
+# Cleanup job, called by Vercel Cron with this as a bearer token
+CRON_SECRET = os.getenv("CRON_SECRET")
